@@ -1,9 +1,8 @@
 import { useState } from "react"
 
-const names = []
-
 const App = () => {
   const [firstName, setFirstName] = useState("")
+  const [names, setNames] = useState([])
 
   
 
@@ -14,8 +13,9 @@ const App = () => {
     
 
     if (firstName) {
-      names.push(firstName)
-      console.log(names)
+      setNames((names) => {
+        return [...names, firstName] // ... je spread operator a vezme to, čo má v names a pridá to k firstName
+      })
     } else {
       console.log("Nebolo nič vyplnené")
     }
@@ -37,14 +37,14 @@ const App = () => {
 
 
 
-    {names.map((oneName) => {
-      return <p>{oneName}</p>
+    {names.map((oneName, index) => {
+      return <p key={index}>{oneName}</p>
     })}
 
 
 
 
-    <a href="https://youtu.be/GI00M5ptBWg?list=PLQ8x_VWW6Aktmp_v1eYcCBbO5GovP_sHl" target='_blank'>Odkaz na video</a>
+    <a href="https://youtu.be/qjGzq4Zfn3o?list=PLQ8x_VWW6Aktmp_v1eYcCBbO5GovP_sHl" target='_blank'>Odkaz na video</a>
   </article>
 }
 
