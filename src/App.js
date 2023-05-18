@@ -1,8 +1,15 @@
 import React from 'react'
 
 const App = () => {
+  const formSubmit = (event) => {
+    event.preventDefault() // vypnutie refreshu pri zadaní hodnoty do formulara a stlačení submit
+    console.log("Formuár bol odoslaný");
+  }
+
+
+
   return <article>
-    <form>
+    <form onSubmit={formSubmit}>
         <input className='userName' type="text" id='userName' placeholder='Meno' />
         <input type="submit" value="Registrovať sa" />
     </form>
