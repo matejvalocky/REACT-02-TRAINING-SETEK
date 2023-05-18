@@ -13,7 +13,7 @@ const App = () => {
         <input className='userName' type="text" id='userName' placeholder='Meno' />
         <input onClick={formSubmit} type="submit" value="Registrovať sa" />
     </form>
-    <a href="https://youtu.be/YgIu54eSMRo?list=PLQ8x_VWW6Aktmp_v1eYcCBbO5GovP_sHl" target='_blank'>Odkaz na video</a>
+    <a href="https://youtu.be/mjw1AsQgxEM?list=PLQ8x_VWW6Aktmp_v1eYcCBbO5GovP_sHl" target='_blank'>Odkaz na video</a>
   </article>
 }
 
