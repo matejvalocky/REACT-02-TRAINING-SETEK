@@ -1,13 +1,24 @@
 import { useState } from "react"
 
+const names = []
+
 const App = () => {
   const [firstName, setFirstName] = useState("")
+
+  
 
 
   const formSubmit = (event) => {
     event.preventDefault(); // vypnutie refreshu pri zadaní hodnoty do formulara a stlačení submit
     console.log("Formuár bol odoslaný");
-    console.log(firstName);
+    
+
+    if (firstName) {
+      names.push(firstName)
+      console.log(names)
+    } else {
+      console.log("Nebolo nič vyplnené")
+    }
 
   }
 
@@ -23,7 +34,17 @@ const App = () => {
         />
         <input onClick={formSubmit} type="submit" value="Registrovať sa" />
     </form>
-    <a href="https://youtu.be/-hDaROLnyr4?list=PLQ8x_VWW6Aktmp_v1eYcCBbO5GovP_sHl" target='_blank'>Odkaz na video</a>
+
+
+
+    {names.map((oneName) => {
+      return <p>{oneName}</p>
+    })}
+
+
+
+
+    <a href="https://youtu.be/GI00M5ptBWg?list=PLQ8x_VWW6Aktmp_v1eYcCBbO5GovP_sHl" target='_blank'>Odkaz na video</a>
   </article>
 }
 
