@@ -6,7 +6,8 @@ body{
 }
 
 form{
-  height: 100vh;
+  height: 30vh;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,4 +25,13 @@ input[type="submit"]{
   border: none; 
   padding: 5px 10px;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.item{
+  text-align: center;
+  box-shadow: 0 0 10px #e50914;
+  width: 300px;
+  margin: 10px auto;
+
 }

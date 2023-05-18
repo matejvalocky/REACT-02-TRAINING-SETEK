@@ -20,6 +20,10 @@ const App = () => {
       console.log("Nebolo nič vyplnené")
     }
 
+    setFirstName("")
+
+
+
   }
 
 
@@ -38,13 +42,13 @@ const App = () => {
 
 
     {names.map((oneName, index) => {
-      return <p key={index}>{oneName}</p>
+      return <p className="item" key={index}>{oneName}</p>
     })}
 
 
 
 
-    <a href="https://youtu.be/qjGzq4Zfn3o?list=PLQ8x_VWW6Aktmp_v1eYcCBbO5GovP_sHl" target='_blank'>Odkaz na video</a>
+    <a href="https://youtu.be/msrHyFhd6oA?list=PLQ8x_VWW6Aktmp_v1eYcCBbO5GovP_sHl" target='_blank'>Odkaz na video</a>
   </article>
 }
 
