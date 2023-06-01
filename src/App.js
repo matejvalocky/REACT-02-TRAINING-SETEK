@@ -7,15 +7,44 @@ const App = () => {
 
   const formSubmit = (event) => {
     event.preventDefault()
-    console.log("form bol odoslaný")
+
+    if( fullName && email ) {
+      const oneUser = {fullName: fullName, email: email}
+      setUsers( (users) => {
+        return [...users, oneUser]
+      })
+    } else {
+      console.log("Niečo nebolo vyplnené")
+    }
+
+    setFullName("")
+    setEmail("")
+
+    
+
+
   }
 
 
 
   return <article>
     <form onSubmit={formSubmit}>
-      <input className="userInfo" type="text" placeholder="Meno" />
-      <input className="userInfo" type="email" placeholder='Email' />
+      <input  
+        className="userInfo" 
+        type="text" 
+        placeholder="Meno" 
+        value={fullName}  
+        onChange={ (event) => setFullName(event.target.value)}    
+      />
+
+      <input  
+        className="userInfo" 
+        type="email" 
+        placeholder='Email' 
+        value={email}
+        onChange={ (event) => setEmail(event.target.value)}
+      />
+
       <input type="submit" />
     </form>
   </article>
