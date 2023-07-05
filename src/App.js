@@ -2,28 +2,41 @@ import { useState } from "react"
 
 const App = () => {
   // 1. Pridanie premnnej
-  const [fullName, setFullName] = useState("")
-  const [email, setEmail] = useState("")
-  const [age, setAge] = useState("")
+
+
+  // const [fullName, setFullName] = useState("")
+  // const [email, setEmail] = useState("")
+  // const [age, setAge] = useState("")
+
+  const [oneUser, setOneUser] = useState ({fullName: "", email: "", age: ""}) //vcucnutie troch riadkov do jedného
+
   const [users, setUsers] = useState([])
+
+  const formChange = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+    // console.log(name, value)
+
+    setOneUser({...oneUser, [name]: value })
+  }
 
   const formSubmit = (event) => {
     event.preventDefault()
 
-    if( fullName && email ) {
+    if(oneUser.fullName && oneUser.email && oneUser.age) {
   // 2. pridanie do oneUser
-      const oneUser = {fullName: fullName, email: email, age: age}
+      const newUser = {fullName: oneUser.fullName, email: oneUser.email, age: oneUser.age}
       setUsers( (users) => {
-        return [...users, oneUser]
+        return [...users, newUser]
       })
     } else {
       console.log("Niečo nebolo vyplnené")
     }
 
   //3. vymazanie po zadaní hodnoty do políčka
-    setFullName("")
-    setEmail("")
-    setAge("")
+    // setFullName("")
+    // setEmail("")
+    // setAge("")
 
     
 
@@ -40,24 +53,27 @@ const App = () => {
         className="userInfo" 
         type="text" 
         placeholder="Meno" 
-        value={fullName}  
-        onChange={ (event) => setFullName(event.target.value)}    
+        value={oneUser.fullName}  
+        onChange={formChange}   
+        name="fullName"
       />
 
       <input  
         className="userInfo" 
         type="email" 
         placeholder='Email' 
-        value={email}
-        onChange={ (event) => setEmail(event.target.value)}
+        value={oneUser.email}
+        onChange={formChange}  
+        name="email" 
       />
 
       <input  
         className="userInfo" 
         type="text" 
         placeholder='vek' 
-        value={age}
-        onChange={ (event) => setAge(event.target.value)}
+        value={oneUser.age}
+        onChange={formChange}  
+        name="age" 
       />
 
       <input type="submit" />
