@@ -2,10 +2,10 @@ import { useState } from "react"
 
 const App = () => {
   // 1. Pridanie premnnej
-  const[fullName, setFullName] = useState("")
+  const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
   const [age, setAge] = useState("")
-  const[users, setUsers] = useState([])
+  const [users, setUsers] = useState([])
 
   const formSubmit = (event) => {
     event.preventDefault()
